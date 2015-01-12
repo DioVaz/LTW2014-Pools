@@ -25,22 +25,12 @@ $answers = getAnswers($id);
       <h1>Login</h1>
     </header>
     <section id="main">
-
-      <form  action="../pages/search.php" method="post">
-        <div>
-          <label for="Search ">Search:</label> 
-          <div >
-            <input type="text" id="keyword" name="keyword">
-          </div>
-        </div>
-        </form>
-
       <form action="../actions/vote.php"  method="post">
-        <?php
-        	foreach ($poll as $p){
+        <?php 
+        	foreach ($poll as $p){ 
         echo('
         <ul id="login-fields" type="none">
-          <li><img src= '. $p['img'] .' alt="pollpic" style="width:304px;height:228px"></li>
+          <li><img src= '. $p['img'] .'alt="pollpic" style="width:304px;height:228px"></li>
           <li><h6>'.$p['question'].'<h6>' );
 
         foreach ($answers as $a) {

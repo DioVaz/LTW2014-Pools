@@ -6,14 +6,11 @@
 
 $id = $_GET["id"];
 
-if(isset($_SESSION['username'])){
+
 $nome = $_SESSION['username'];
-$arrayIdUser = getUser($nome);
+$arrayIdUser = getUserId($nome);
 
 $idUser = $arrayIdUser["idRegistered"];
-}else{
-$idUser = -1;
-}
 
 $allAnswers = getAnswers($id);
 
@@ -25,7 +22,6 @@ if(isset($_COOKIE[$id]) || getOwner($idUser, $id)){
 
 foreach ($allAnswers as $key => $answer2 ) {
   		echo $answer2['text'] . " has " . $answer2['votes' ]. 'votes!';
-	
 	}
 
 }else{

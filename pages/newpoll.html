@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LTW - PollsManager</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <section id="PollsManager">
+
+    <header id="header">
+      <h1>pollsManager</h1>
+      <input type="text" id="new-poll" name="question" placeholder="What do you want to ask?" />
+    </header>
+
+    <section id="main">
+      <form action="../actions/createpoll.php" method="post">
+        <ul id="answer-list" type="A">
+          <li class="answer" id="answerA">
+            <input type="checkbox" class="toggle">
+            <input type="text" id="new-poll" name="answer[]" placeholder="Answer - A" />
+          </li>
+
+          <li class="answer" id="answerB">
+            <input type="checkbox" class="toggle">
+            <input type="text" id="new-poll" name="answer[]"  placeholder="Answer - B" />
+          </li>
+
+          <li class="answer" id="answerC">
+            <input type="checkbox" class="toggle">
+            <input type="text" id="new-poll" name="answer[]"  placeholder="Answer - C" />
+          </li>
+
+          <li class="answer" id="answerD">
+            <input type="checkbox" class="toggle">
+            <input type="text" id="new-poll" name="answer[]"  placeholder="Answer - D" />
+          </li>
+          <li><input id="Idpicture" name="srcpicture" type="text"></li>
+          <li><input type="checkbox" id="allowtoggle-all"> Allow multiple check</li>
+          <li><button class="complete">Complete</button></li>
+          <li>...</li>
+        </ul>
+      </form>
+      <footer id="footer"></footer>
+    </section>
+  </section>
+  <section id="foot">
+    <p>Trabalho realizado por: </p>
+    <p>Grupo X Turma Y </p>
+    <p>2014</p>
+  </section>
+</body>
+</html>

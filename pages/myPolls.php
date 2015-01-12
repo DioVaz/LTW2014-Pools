@@ -5,11 +5,10 @@ include_once('../database/users.php');
 include_once('../database/poll.php');
 
 $user = $_SESSION['username'];
-$idU = getUser($user);
+$idU = getUserId($user);
 
 foreach ($idU as $key => $value) {
-  $polls = getPollsFromUser($value);
-
+  $polls = getPollFromId($value);
 }
 
 
@@ -32,13 +31,14 @@ foreach ($idU as $key => $value) {
     </header>
     <section id="main">
       <form action=# method="post">
-       <?php 
-          foreach ($polls as $p){ 
+       <?php
+          foreach ($polls as $p){
         echo('
         <ul id="login-fields" type="none">
-          <li><h3> <a href="../pages/results.php?id=' . $p['idPoll'] . '">' . $p['question'] . '</a><h3></li> ');
+          <li><h6> <a href="../pages/results.php?id=' . $p['idPoll'] . '">' . $p['question'] . '</a><h6></li> ');
 
-          echo('<li><input type="hidden" name="id" value='.$p['idPoll'].'></li>
+          echo('<li><input type="submit" class="button" value="Submit"></li>
+            <li><input type="hidden" name="id" value='.$p['idPoll'].'></li>
           <li>***</li>
         </ul>
        ');

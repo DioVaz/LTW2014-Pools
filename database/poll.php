@@ -8,14 +8,6 @@ function getPolls(){
    return $stmt->fetchAll();
 }
 
-function getPollsFromUser($idRegistered){
-  global $db;
-  $stmt = $db->prepare('SELECT * FROM poll WHERE idRegistered = ?');
-  $stmt->execute(array($idRegistered));
-  return $stmt->fetchAll();
-}
-
-
 function getPollFromId($idPoll){
   global $db;
   $stmt = $db->prepare('SELECT * FROM poll WHERE idPoll = ?');
@@ -31,14 +23,6 @@ function getPoll($question){
     $result = $stmt->fetch();
 
     return $result;
-}
-
-function getOwner ($idPoll, $idRegistered){
-    global $db;
-    $stmt = $db->prepare('SELECT idRegistered FROM poll WHERE idPoll = ? AND idRegistered = ?');
-    $stmt->execute(array($idPoll, $idRegistered));
-    return $stmt->fetch() == true;
-
 }
 
 
@@ -69,8 +53,8 @@ function getAnswers($idPoll){
     $stmt = $db->prepare('UPDATE answer SET votes = votes+1 WHERE idAnswer=?');
     $stmt->execute(array($idAnswer));
 
-    $st = $db->prepare("INSERT INTO userPoll (idUser, idPoll) VALUES (? , ?)");
-    $st->execute(array($idUser, $idPoll));
+    //$st = $db->prepare("INSERT INTO userPoll (idUser, idPoll) VALUES (? , ?)");
+   // $st->execute(array($idUser, $idPoll));
  }
 
   function alreadyVoted($idPoll, $idUser){
@@ -80,12 +64,13 @@ function getAnswers($idPoll){
     return $stmt->fetch()== true;
  }
 
- function search($word){
-    global $db;
-    $stmt = $db->prepare("SELECT *  FROM poll WHERE question LIKE '%?%'");
-    $stmt->execute(array($word));
-    return $stmt->fetchAll();
- }
+function getOwner ($idPoll, $idRegistered){
+	global $db;
+	$stmt = $db->prepare('SELECT idRegistered FROM poll WHERE idPoll = ? AND idRegistered = ?');
+	$stmt->execute(array($idPoll, $idRegistered));
+	return $stmt->fetch() == true;
+
+}
 
 
 ?>

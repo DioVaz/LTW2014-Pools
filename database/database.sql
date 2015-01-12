@@ -19,6 +19,10 @@ CREATE TABLE registered(
     PRIMARY KEY(idRegistered)
 );
 
+CREATE TABLE nonRegistered(
+	idNonRegistered INTEGER REFERENCES users(idUser),
+	PRIMARY KEY(idNonRegistered)
+);
 
 CREATE TABLE poll(
 	idPoll INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,38 +46,11 @@ CREATE TABLE userPoll(
 );
 
 
-INSERT INTO registered (email, username, password) VALUES ('joaomanuel@gmail.com','joaomanuel','password');
-INSERT INTO registered (email, username, password) VALUES ('mariam@hotmail.com','maria','12345678');
 
-
-INSERT INTO poll (question, img, idRegistered)VALUES ('What is your favorite digital camera brand?',
-	'http://i.i.cbsi.com/cnwk.1d/i/tim2/2013/06/23/Samsung_Galaxy_Camera_NX_rear_view.jpg' ,1);
-INSERT INTO answer (text, idPoll) VALUES ('Panasonic', 1);
-INSERT INTO answer (text, idPoll) VALUES ('Canon', 1);
-INSERT INTO answer (text, idPoll) VALUES ('Sony', 1);
-INSERT INTO answer (text, idPoll) VALUES ('Nikon', 1);
-
-
-INSERT INTO poll (question, img, idRegistered)VALUES ('When can you play football?',
-	'https://gigaompaidcontent.files.wordpress.com/2012/02/soccer-football-ball-in-goal-net-o.jpg' ,1);
-INSERT INTO answer (text, idPoll) VALUES ('Monday', 2);
-INSERT INTO answer (text, idPoll) VALUES ('Tuesday', 2);
-INSERT INTO answer (text, idPoll) VALUES ('Wednesday', 2);
-INSERT INTO answer (text, idPoll) VALUES ('Thursday', 2);
-INSERT INTO answer (text, idPoll) VALUES ('Friday', 2);
-
-
-INSERT INTO poll (question, img, idRegistered)VALUES ('What is your favourite season?',
-	'http://blog.realestatebook.com/wp-content/uploads/2014/01/the_four_seasons___vivaldi_by_irvinggfm-d4tj3vc.jpg' ,1);
-INSERT INTO answer (text, idPoll) VALUES ('Spring', 3);
-INSERT INTO answer (text, idPoll) VALUES ('Summer', 3);
-INSERT INTO answer (text, idPoll) VALUES ('Fall', 3);
-INSERT INTO answer (text, idPoll) VALUES ('Winter', 3);
-
-
-
-
-
-
-
+INSERT INTO registered (email, username, password) VALUES ('cenas@cenas.com','cenas','cenas1');
+INSERT INTO poll (question, img, idRegistered)VALUES ('Como esta o tempo?',
+	'http://www.gostodeler.com.br/images/681/cienciaetecnologia/meteorologia1.jpg' ,1);
+INSERT INTO answer (text, idPoll) VALUES ('Muito bom', 1);
+INSERT INTO answer (text, idPoll) VALUES ('Médio', 1);
+INSERT INTO answer (text, idPoll) VALUES ('Mau', 1);
 

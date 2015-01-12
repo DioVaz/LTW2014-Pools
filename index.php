@@ -1,3 +1,3 @@
 <?php
-  header('Location: pages/newpoll.php');
+  header('Location: pages/create_poll.php');
 ?>
